@@ -1,6 +1,6 @@
 # Render bindings for ICanBoogie
 
-[![Release](https://img.shields.io/github/release/ICanBoogie/bind-render.svg)](https://github.com/ICanBoogie/bind-render/releases)
+[![Release](https://img.shields.io/packagist/v/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
 [![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render/master.svg)](http://travis-ci.org/ICanBoogie/bind-render)
 [![HHVM](https://img.shields.io/hhvm/icanboogie/bind-render.svg)](http://hhvm.h4cc.de/package/icanboogie/bind-render)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/bind-render/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/bind-render)
