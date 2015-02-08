@@ -8,7 +8,7 @@
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
 
 The **icanboogie/bind-render** package binds [icanboogie/render][] to [ICanBoogie][], using its
-autoconfig feature. It adds various getters to the [Core][] instance and a template
+autoconfig feature. It adds various getters and methods to the [Core][] instance and a template
 resolver that uses the application paths to look for templates.
 
 ```php
@@ -19,6 +19,8 @@ $app = ICanBoogie\boot();
 echo get_class($app->template_engines);  // ICanBoogie\Render\EngineCollection
 echo get_class($app->template_resolver); // ICanBoogie\Binding\Render\ApplicationTemplateResolver
 echo get_class($app->renderer);          // ICanBoogie\Render\Renderer
+
+$app->render($app->models['articles']->one);
 ```
 
 The shared [BasicTemplateResolver][] instance is replaced by an [ApplicationTemplateResolver][]

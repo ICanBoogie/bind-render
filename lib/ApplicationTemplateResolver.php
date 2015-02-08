@@ -16,7 +16,7 @@ use ICanBoogie\Render\TemplateResolver;
 /**
  * Decorates a template resolver and adds support for the application paths.
  *
- * @package ICanBoogie
+ * @package ICanBoogie\Binding\Render
  */
 class ApplicationTemplateResolver implements TemplateResolver
 {
@@ -56,8 +56,7 @@ class ApplicationTemplateResolver implements TemplateResolver
 	{
 		if (strpos($name, '//') === 0)
 		{
-			$name = substr($name, 2);
-			$template = $this->resolve_from_app($name, $extensions, $tries);
+			$template = $this->resolve_from_app(substr($name, 2), $extensions, $tries);
 
 			if ($template)
 			{

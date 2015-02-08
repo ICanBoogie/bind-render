@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Bindings\Render;
+namespace ICanBoogie\Binding\Render;
 
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,5 +39,35 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 		$renderer = self::$app->renderer;
 		$this->assertInstanceOf('ICanBoogie\Render\Renderer', $renderer);
 		$this->assertSame($renderer, self::$app->renderer);
+	}
+
+	public function test_render()
+	{
+		$target_or_options = uniqid();
+		$additional_options = [ uniqid() ];
+		$rc = uniqid();
+
+		$renderer = $this
+			->getMockBuilder('ICanBoogie\Render\Renderer')
+			->disableOriginalConstructor()
+			->setMethods([ 'render' ])
+			->getMock();
+		$renderer
+			->expects($this->once())
+			->method('render')
+			->with($target_or_options, $additional_options)
+			->willReturn($rc);
+
+		$app = $this
+			->getMockBuilder('ICanBoogie\Core')
+			->disableOriginalConstructor()
+			->setMethods([ 'get_renderer' ])
+			->getMock();
+		$app
+			->expects($this->once())
+			->method('get_renderer')
+			->willReturn($renderer);
+
+		Hooks::render($app, $target_or_options, $additional_options);
 	}
 }

@@ -11,6 +11,7 @@
 
 namespace ICanBoogie\Binding\Render;
 
+use ICanBoogie\Core;
 use ICanBoogie\Render;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
@@ -65,5 +66,19 @@ class Hooks
 	static public function get_renderer()
 	{
 		return clone Render\get_renderer();
+	}
+
+	/**
+	 * Renders a template.
+	 *
+	 * @param Core $app
+	 * @param mixed $target_or_options
+	 * @param array $additional_options
+	 *
+	 * @return mixed
+	 */
+	static public function render(Core $app, $target_or_options, array $additional_options = [])
+	{
+		return $app->renderer->render($target_or_options, $additional_options);
 	}
 }
