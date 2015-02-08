@@ -21,8 +21,8 @@
 
 	"require": {
 		"php": ">=5.4.0",
-		"icanboogie/icanboogie": "2.2.x@dev",
-		"icanboogie/render": ">=0.3.0"
+		"icanboogie/icanboogie": "~2.2.0",
+		"icanboogie/render": "~0.3.0"
 	},
 
 	"autoload": {
