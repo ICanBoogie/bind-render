@@ -31,7 +31,7 @@ class Hooks
 	 */
 	static public function alter_template_resolver(TemplateResolver\AlterEvent $event, TemplateResolver $target)
 	{
-		$event->replace_with(new ApplicationTemplateResolver($event->instance, \ICanBoogie\get_autoconfig()['app-paths']));
+		$event->instance = new ApplicationTemplateResolver($event->instance, \ICanBoogie\get_autoconfig()['app-paths']);
 	}
 
 	/*
