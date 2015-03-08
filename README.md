@@ -1,4 +1,4 @@
-# Render bindings for ICanBoogie
+# bind-render
 
 [![Release](https://img.shields.io/packagist/v/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
 [![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render/master.svg)](http://travis-ci.org/ICanBoogie/bind-render)
@@ -80,11 +80,8 @@ cloned with the following command line:
 
 ## Documentation
 
-The package is documented as part of the [ICanBoogie](http://icanboogie.org/) framework
-[documentation](http://icanboogie.org/docs/). You can generate the documentation for the package
-and its dependencies with the `make doc` command. The documentation is generated in the `docs`
-directory. [ApiGen](http://apigen.org/) is required. You can later clean the directory with
-the `make clean` command.
+The package is documented as part of the [ICanBoogie][] framework
+[documentation](http://icanboogie.org/docs/). You can generate the documentation for the package and its dependencies with the `make doc` command. The documentation is generated in the `build/docs` directory. [ApiGen](http://apigen.org/) is required. The directory can later be cleaned with the `make clean` command.
 
 
 
@@ -92,9 +89,7 @@ the `make clean` command.
 
 ## Testing
 
-The test suite is ran with the `make test` command. [Composer](http://getcomposer.org/) is
-automatically installed as well as all dependencies required to run the suite. You can later
-clean the directory with the `make clean` command.
+The test suite is ran with the `make test` command. [PHPUnit](https://phpunit.de/) and [Composer](http://getcomposer.org/) need to be globally available to run the suite. The command installs dependencies as required. The `make test-coverage` command runs test suite and also creates an HTML coverage report in "build/coverage". The directory can later be cleaned with the `make clean` command.
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
@@ -107,7 +102,7 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 ## License
 
-ICanBoogie/bind-render is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
+**icanboogie/bind-render** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
 
 
 

@@ -12,6 +12,7 @@
 namespace ICanBoogie\Binding\Render;
 
 use ICanBoogie\Render\TemplateResolver;
+use ICanBoogie\Render\TemplateResolverTrait;
 
 /**
  * Decorates a template resolver and adds support for the application paths.
@@ -20,6 +21,8 @@ use ICanBoogie\Render\TemplateResolver;
  */
 class ApplicationTemplateResolver implements TemplateResolver
 {
+	use TemplateResolverTrait;
+
 	/**
 	 * Original template resolver.
 	 *
@@ -52,11 +55,11 @@ class ApplicationTemplateResolver implements TemplateResolver
 	/**
 	 * @inheritdoc
 	 */
-	public function resolve($name, array $extensions, &$tries = [ ])
+	public function resolve($name, array $extensions, &$tried = [])
 	{
 		if (strpos($name, '//') === 0)
 		{
-			$template = $this->resolve_from_app(substr($name, 2), $extensions, $tries);
+			$template = $this->resolve_from_app(substr($name, 2), $extensions, $tried);
 
 			if ($template)
 			{
@@ -64,51 +67,21 @@ class ApplicationTemplateResolver implements TemplateResolver
 			}
 		}
 
-		return $this->component->resolve($name, $extensions, $tries);
+		return $this->component->resolve($name, $extensions, $tried);
 	}
 
 	/**
 	 * Resolves a name from the application paths.
 	 *
-	 * @param $name
-	 * @param $extensions
-	 * @param $tries
+	 * @param string $name
+	 * @param array $extensions
+	 * @param array $tried
 	 *
 	 * @return null|string
 	 */
-	protected function resolve_from_app($name, array $extensions, &$tries)
+	protected function resolve_from_app($name, array $extensions, array &$tried)
 	{
-		if (pathinfo($name, PATHINFO_EXTENSION))
-		{
-			foreach ($this->paths as $path)
-			{
-				$try = $path . $name;
-				$tries[] = $try;
-
-				if (file_exists($try))
-				{
-					return $try;
-				}
-			}
-
-			return null;
-		}
-
-		foreach ($this->paths as $path)
-		{
-			foreach ($extensions as $extension)
-			{
-				$try = $path . $name . $extension;
-				$tries[] = $try;
-
-				if (file_exists($try))
-				{
-					return $try;
-				}
-			}
-		}
-
-		return null;
+		return $this->resolve_path($this->resolve_tries($this->paths, $name, $extensions), $tried);
 	}
 
 	/**

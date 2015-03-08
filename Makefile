@@ -1,6 +1,7 @@
 # customization
 
 PACKAGE_NAME = "ICanBoogie/bind-render"
+PACKAGE_VERSION = "v0.3.0"
 
 # do not edit the following lines
 
@@ -24,18 +25,18 @@ test-coverage: vendor
 	@phpunit --coverage-html build/coverage
 
 doc: vendor
-	@mkdir -p "docs"
-
-	@apigen \
-	--source ./ \
-	--destination docs/ --title $(PACKAGE_NAME) \
+	@mkdir -p build/docs
+	@apigen generate \
+	--source lib \
 	--exclude "*/composer/*" \
-	--exclude "*/tests/*" \
-	--template-config /usr/share/php/data/ApiGen/templates/bootstrap/config.neon
+	--exclude "*/autoload.php" \
+	--destination build/docs/ \
+	--title "$(PACKAGE_NAME) $(PACKAGE_VERSION)" \
+	--template-theme "bootstrap" \
+	--debug
 
 clean:
-	@rm -fR build/coverage
-	@rm -fR docs
+	@rm -fR build
 	@rm -fR vendor
 	@rm -f composer.lock
-	@rm -f composer.phar
+
