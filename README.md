@@ -32,8 +32,8 @@ instance during the `TemplateResolver::alter` event of class [TemplateResolver\A
 
 ## Enhanced template resolver
 
-ICanBoogie extends the template resolver used by [icanboogie/render][] and [icanboogie/view][]
-to search templates in the application paths (see [Multi-site support](https://github.com/ICanBoogie/ICanBoogie#multi-site-support)).
+[ApplicationTemplateResolver][] extends the template resolver used by [icanboogie/render][]
+and [icanboogie/view][] to search templates in the application paths (see [Multi-site support](https://github.com/ICanBoogie/ICanBoogie#multi-site-support)).
 Also, the "//" prefix can be used to search for templates from these paths .e.g.
 "//my/special/templates/_form".
 
