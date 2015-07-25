@@ -12,6 +12,8 @@
 namespace ICanBoogie\Binding\Render;
 
 use ICanBoogie\Render\TemplateResolver;
+use ICanBoogie\Render\TemplateResolverDecorator;
+use ICanBoogie\Render\TemplateResolverDecoratorTrait;
 use ICanBoogie\Render\TemplateResolverTrait;
 
 /**
@@ -19,16 +21,10 @@ use ICanBoogie\Render\TemplateResolverTrait;
  *
  * @package ICanBoogie\Binding\Render
  */
-class ApplicationTemplateResolver implements TemplateResolver
+class ApplicationTemplateResolver implements TemplateResolverDecorator
 {
 	use TemplateResolverTrait;
-
-	/**
-	 * Original template resolver.
-	 *
-	 * @var TemplateResolver
-	 */
-	private $component;
+	use TemplateResolverDecoratorTrait;
 
 	/**
 	 * Application paths.
@@ -43,13 +39,8 @@ class ApplicationTemplateResolver implements TemplateResolver
 	 */
 	public function __construct(TemplateResolver $template_resolver, array $paths)
 	{
-		$this->component = $template_resolver;
-		$this->paths = array_reverse($paths);
-
-		foreach ($paths as $path)
-		{
-			$template_resolver->add_path($path . 'templates');
-		}
+		$this->template_resolver = $template_resolver;
+		$this->paths = $this->expend_paths($paths);
 	}
 
 	/**
@@ -67,17 +58,17 @@ class ApplicationTemplateResolver implements TemplateResolver
 			}
 		}
 
-		return $this->component->resolve($name, $extensions, $tried);
+		return $this->template_resolver->resolve($name, $extensions, $tried);
 	}
 
 	/**
-	 * Resolves a name from the application paths.
+	 * Resolves a template name from the application paths.
 	 *
 	 * @param string $name
 	 * @param array $extensions
 	 * @param array $tried
 	 *
-	 * @return null|string
+	 * @return string|null
 	 */
 	protected function resolve_from_app($name, array $extensions, array &$tried)
 	{
@@ -85,18 +76,28 @@ class ApplicationTemplateResolver implements TemplateResolver
 	}
 
 	/**
-	 * @inheritdoc
+	 * Expends application paths into template paths.
+	 *
+	 * **Note:** Paths that do not have a "templates" directory are discarded.
+	 *
+	 * @param array $paths
+	 *
+	 * @return array
 	 */
-	public function add_path($path, $weight = 0)
+	protected function expend_paths(array $paths)
 	{
-		return $this->component->add_path($path, $weight);
-	}
+		$resolved_paths = [];
 
-	/**
-	 * @inheritdoc
-	 */
-	public function get_paths()
-	{
-		return $this->component->get_paths();
+		foreach (array_reverse($paths) as $path)
+		{
+			$path .= 'templates' . DIRECTORY_SEPARATOR;
+
+			if (file_exists($path))
+			{
+				$resolved_paths[] = $path;
+			}
+		}
+
+		return $resolved_paths;
 	}
 }
