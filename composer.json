@@ -19,10 +19,12 @@
 		"source": "https://github.com/ICanBoogie/bind-render"
 	},
 
+	"minimum-stability": "dev",
+
 	"require": {
-		"php": ">=5.4.0",
-		"icanboogie/icanboogie": ">=2.3.0",
-		"icanboogie/render": ">=0.4.0"
+		"php": ">=5.5.0",
+		"icanboogie/icanboogie": "^2.4.0",
+		"icanboogie/render": "^0.5.0"
 	},
 
 	"autoload": {

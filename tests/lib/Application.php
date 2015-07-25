@@ -9,9 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie;
+namespace App;
 
-$autoload = require __DIR__ . '/../vendor/autoload.php';
-$autoload->setPsr4('App\\', __DIR__ . '/lib');
+use ICanBoogie\Binding\Render\CoreBindings;
+use ICanBoogie\Core;
 
-boot();
+class Application extends Core
+{
+	use CoreBindings
+}

@@ -81,7 +81,10 @@ cloned with the following command line:
 ## Documentation
 
 The package is documented as part of the [ICanBoogie][] framework
-[documentation](http://icanboogie.org/docs/). You can generate the documentation for the package and its dependencies with the `make doc` command. The documentation is generated in the `build/docs` directory. [ApiGen](http://apigen.org/) is required. The directory can later be cleaned with the `make clean` command.
+[documentation][]. You can generate the documentation for the package and its dependencies with
+the `make doc` command. The documentation is generated in the `build/docs` directory.
+[ApiGen](http://apigen.org/) is required. The directory can later be cleaned with
+the `make clean` command.
 
 
 
@@ -108,11 +111,12 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 
 
-[icanboogie/module]: https://github.com/ICanBoogie/Module
-[icanboogie/render]: https://github.com/ICanBoogie/Render
-[icanboogie/view]: https://github.com/ICanBoogie/View
-[ICanBoogie]: https://github.com/ICanBoogie/ICanBoogie
-[ApplicationTemplateResolver]: http://icanboogie.org/docs/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
-[Core]: http://icanboogie.org/docs/class-ICanBoogie.Core.html
-[BasicTemplateResolver]: http://icanboogie.org/docs/class-ICanBoogie.Render.BasicTemplateResolver.html
-[TemplateResolver\AlterEvent]: http://icanboogie.org/docs/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
+[documentation]:               http://api.icanboogie.org/bind-render/0.4/
+[ApplicationTemplateResolver]: http://api.icanboogie.org/bind-render/0.4/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
+[Core]:                        http://api.icanboogie.org/icanboogie/2.4/class-ICanBoogie.Core.html
+[BasicTemplateResolver]:       http://api.icanboogie.org/render/0.5/class-ICanBoogie.Render.BasicTemplateResolver.html
+[TemplateResolver\AlterEvent]: http://api.icanboogie.org/render/0.5/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
+[icanboogie/module]:           https://github.com/ICanBoogie/Module
+[icanboogie/render]:           https://github.com/ICanBoogie/Render
+[icanboogie/view]:             https://github.com/ICanBoogie/View
+[ICanBoogie]:                  https://github.com/ICanBoogie/ICanBoogie
