@@ -50,12 +50,14 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 	{
 		if (strpos($name, '//') === 0)
 		{
-			$template = $this->resolve_from_app(substr($name, 2), $extensions, $tried);
+			return $this->resolve_from_app(substr($name, 2), $extensions, $tried);
+		}
 
-			if ($template)
-			{
-				return $template;
-			}
+		$template = $this->resolve_from_app($name, $extensions, $tried);
+
+		if ($template)
+		{
+			return $template;
 		}
 
 		return $this->template_resolver->resolve($name, $extensions, $tried);
