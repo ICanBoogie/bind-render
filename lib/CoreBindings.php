@@ -21,39 +21,13 @@ use ICanBoogie\Render\TemplateResolver;
  * @property EngineCollection $template_engines
  * @property TemplateResolver $template_resolver
  * @property Renderer $renderer
+ *
+ * @see \ICanBoogie\Binding\Render\Hooks::get_template_engines
+ * @see \ICanBoogie\Binding\Render\Hooks::get_template_resolver
+ * @see \ICanBoogie\Binding\Render\Hooks::get_renderer
  */
 trait CoreBindings
 {
-	/**
-	 * @see \ICanBoogie\Binding\Render\Hooks::get_template_engines
-	 *
-	 * @return EngineCollection
-	 */
-	protected function lazy_get_template_engines()
-	{
-		return parent::lazy_get_template_engines();
-	}
-
-	/**
-	 * @see \ICanBoogie\Binding\Render\Hooks::get_template_resolver
-	 *
-	 * @return TemplateResolver
-	 */
-	protected function lazy_get_template_resolver()
-	{
-		return parent::lazy_get_template_resolver();
-	}
-
-	/**
-	 * @see \ICanBoogie\Binding\Render\Hooks::get_renderer
-	 *
-	 * @return Renderer
-	 */
-	protected function lazy_get_renderer()
-	{
-		return parent::lazy_get_renderer();
-	}
-
 	/**
 	 * Renders a template.
 	 *
