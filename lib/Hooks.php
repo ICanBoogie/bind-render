@@ -71,7 +71,7 @@ class Hooks
 	/**
 	 * Renders a template.
 	 *
-	 * @param Core $app
+	 * @param Core|CoreBindings $app
 	 * @param mixed $target_or_options
 	 * @param array $additional_options
 	 *
