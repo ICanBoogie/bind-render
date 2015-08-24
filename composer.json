@@ -23,8 +23,11 @@
 
 	"require": {
 		"php": ">=5.5.0",
-		"icanboogie/icanboogie": "^2.4.0",
-		"icanboogie/render": "^0.5.0",
+		"icanboogie/icanboogie": "^3.0.0",
+		"icanboogie/render": "^0.5.0"
+	},
+	
+	"require-dev": {
 		"psr/log": "1.0.0"
 	},
 
