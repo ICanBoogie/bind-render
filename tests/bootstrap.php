@@ -12,6 +12,5 @@
 namespace ICanBoogie;
 
 $autoload = require __DIR__ . '/../vendor/autoload.php';
-$autoload->setPsr4('App\\', __DIR__ . '/lib');
 
 boot();

@@ -68,6 +68,8 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 			->method('get_renderer')
 			->willReturn($renderer);
 
+		/* @var $app \ICanBoogie\Core */
+
 		Hooks::render($app, $target_or_options, $additional_options);
 	}
 }
