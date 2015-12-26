@@ -111,9 +111,9 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 
 
-[documentation]:               http://api.icanboogie.org/bind-render/0.4/
-[ApplicationTemplateResolver]: http://api.icanboogie.org/bind-render/0.4/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
-[Core]:                        http://api.icanboogie.org/icanboogie/2.4/class-ICanBoogie.Core.html
+[documentation]:               http://api.icanboogie.org/bind-render/0.5/
+[ApplicationTemplateResolver]: http://api.icanboogie.org/bind-render/0.5/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
+[Core]:                        http://api.icanboogie.org/icanboogie/3.0/class-ICanBoogie.Core.html
 [BasicTemplateResolver]:       http://api.icanboogie.org/render/0.5/class-ICanBoogie.Render.BasicTemplateResolver.html
 [TemplateResolver\AlterEvent]: http://api.icanboogie.org/render/0.5/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
 [icanboogie/module]:           https://github.com/ICanBoogie/Module
