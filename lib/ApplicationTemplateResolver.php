@@ -72,7 +72,7 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 	 *
 	 * @return string|null
 	 */
-	protected function resolve_from_app($name, array $extensions, array &$tried)
+	protected function resolve_from_app($name, array $extensions, &$tried)
 	{
 		return $this->resolve_path($this->resolve_tries($this->paths, $name, $extensions), $tried);
 	}
