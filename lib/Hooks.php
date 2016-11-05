@@ -17,6 +17,8 @@ use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
 use ICanBoogie\Render\TemplateResolver;
 
+use function ICanBoogie\get_autoconfig;
+
 class Hooks
 {
 	/*
@@ -31,7 +33,7 @@ class Hooks
 	 */
 	static public function alter_template_resolver(TemplateResolver\AlterEvent $event, TemplateResolver $target)
 	{
-		$event->instance = new ApplicationTemplateResolver($event->instance, \ICanBoogie\get_autoconfig()['app-paths']);
+		$event->instance = new ApplicationTemplateResolver($event->instance, get_autoconfig()['app-paths']);
 	}
 
 	/*

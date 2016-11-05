@@ -15,13 +15,15 @@ use ICanBoogie\Core;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
 
+use function ICanBoogie\app;
+
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
 	static private $app;
 
 	static public function setupBeforeClass()
 	{
-		self::$app = \ICanBoogie\app();
+		self::$app = app();
 	}
 
 	public function test_get_template_engines()

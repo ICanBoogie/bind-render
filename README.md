@@ -49,7 +49,7 @@ Also, the "//" prefix can be used to search for templates from these paths .e.g.
 
 ## Requirements
 
-The package requires PHP 5.5 or later.
+The package requires PHP 5.6 or later.
 
 
 
@@ -111,11 +111,11 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 
 
-[documentation]:               http://api.icanboogie.org/bind-render/0.5/
-[ApplicationTemplateResolver]: http://api.icanboogie.org/bind-render/0.5/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
-[Core]:                        http://api.icanboogie.org/icanboogie/3.0/class-ICanBoogie.Core.html
-[BasicTemplateResolver]:       http://api.icanboogie.org/render/0.5/class-ICanBoogie.Render.BasicTemplateResolver.html
-[TemplateResolver\AlterEvent]: http://api.icanboogie.org/render/0.5/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
+[documentation]:               http://api.icanboogie.org/bind-render/0.6/
+[ApplicationTemplateResolver]: http://api.icanboogie.org/bind-render/0.6/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
+[Core]:                        http://api.icanboogie.org/icanboogie/4.0/class-ICanBoogie.Core.html
+[BasicTemplateResolver]:       http://api.icanboogie.org/render/0.6/class-ICanBoogie.Render.BasicTemplateResolver.html
+[TemplateResolver\AlterEvent]: http://api.icanboogie.org/render/0.6/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
 [icanboogie/module]:           https://github.com/ICanBoogie/Module
 [icanboogie/render]:           https://github.com/ICanBoogie/Render
 [icanboogie/view]:             https://github.com/ICanBoogie/View
