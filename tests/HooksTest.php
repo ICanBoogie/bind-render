@@ -11,6 +11,10 @@
 
 namespace ICanBoogie\Binding\Render;
 
+use ICanBoogie\Core;
+use ICanBoogie\Render\EngineCollection;
+use ICanBoogie\Render\Renderer;
+
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
 	static private $app;
@@ -23,21 +27,21 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 	public function test_get_template_engines()
 	{
 		$template_engines = self::$app->template_engines;
-		$this->assertInstanceOf('ICanBoogie\Render\EngineCollection', $template_engines);
+		$this->assertInstanceOf(EngineCollection::class, $template_engines);
 		$this->assertSame($template_engines, self::$app->template_engines);
 	}
 
 	public function test_get_template_resolver()
 	{
 		$template_resolver = self::$app->template_resolver;
-		$this->assertInstanceOf('ICanBoogie\Binding\Render\ApplicationTemplateResolver', $template_resolver);
+		$this->assertInstanceOf(ApplicationTemplateResolver::class, $template_resolver);
 		$this->assertSame($template_resolver, self::$app->template_resolver);
 	}
 
 	public function test_get_renderer()
 	{
 		$renderer = self::$app->renderer;
-		$this->assertInstanceOf('ICanBoogie\Render\Renderer', $renderer);
+		$this->assertInstanceOf(Renderer::class, $renderer);
 		$this->assertSame($renderer, self::$app->renderer);
 	}
 
@@ -48,7 +52,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 		$rc = uniqid();
 
 		$renderer = $this
-			->getMockBuilder('ICanBoogie\Render\Renderer')
+			->getMockBuilder(Renderer::class)
 			->disableOriginalConstructor()
 			->setMethods([ 'render' ])
 			->getMock();
@@ -59,7 +63,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 			->willReturn($rc);
 
 		$app = $this
-			->getMockBuilder('ICanBoogie\Core')
+			->getMockBuilder(Core::class)
 			->disableOriginalConstructor()
 			->setMethods([ 'get_renderer' ])
 			->getMock();
@@ -68,7 +72,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 			->method('get_renderer')
 			->willReturn($renderer);
 
-		/* @var $app \ICanBoogie\Core */
+		/* @var $app Core */
 
 		Hooks::render($app, $target_or_options, $additional_options);
 	}

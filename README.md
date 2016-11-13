@@ -49,7 +49,7 @@ Also, the "//" prefix can be used to search for templates from these paths .e.g.
 
 ## Requirements
 
-The package requires PHP 5.4 or later.
+The package requires PHP 5.5 or later.
 
 
 
