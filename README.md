@@ -8,8 +8,8 @@
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
 
 The **icanboogie/bind-render** package binds [icanboogie/render][] to [ICanBoogie][], using its
-autoconfig feature. It adds various getters and methods to the [Core][] instance and a template
-resolver that uses the application paths to look for templates.
+autoconfig feature. It adds various getters and methods to the [Application][] instance and a
+template resolver that uses the application paths to look for templates.
 
 ```php
 <?php
@@ -113,7 +113,7 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 [documentation]:               http://api.icanboogie.org/bind-render/0.6/
 [ApplicationTemplateResolver]: http://api.icanboogie.org/bind-render/0.6/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
-[Core]:                        http://api.icanboogie.org/icanboogie/4.0/class-ICanBoogie.Core.html
+[Application]:                 https://icanboogie.org/docs/4.0/the-application-class
 [BasicTemplateResolver]:       http://api.icanboogie.org/render/0.6/class-ICanBoogie.Render.BasicTemplateResolver.html
 [TemplateResolver\AlterEvent]: http://api.icanboogie.org/render/0.6/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
 [icanboogie/module]:           https://github.com/ICanBoogie/Module

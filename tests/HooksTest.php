@@ -15,6 +15,8 @@ use ICanBoogie\Core;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
 
+use ICanBoogie\Application;
+
 use function ICanBoogie\app;
 
 class HooksTest extends \PHPUnit_Framework_TestCase
@@ -65,7 +67,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 			->willReturn($rc);
 
 		$app = $this
-			->getMockBuilder(Core::class)
+			->getMockBuilder(Application::class)
 			->disableOriginalConstructor()
 			->setMethods([ 'get_renderer' ])
 			->getMock();
@@ -74,7 +76,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 			->method('get_renderer')
 			->willReturn($renderer);
 
-		/* @var $app Core */
+		/* @var $app Application */
 
 		Hooks::render($app, $target_or_options, $additional_options);
 	}

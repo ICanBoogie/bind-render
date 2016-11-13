@@ -16,7 +16,7 @@ use ICanBoogie\Render\Renderer;
 use ICanBoogie\Render\TemplateResolver;
 
 /**
- * {@link \ICanBoogie\Core} prototype bindings.
+ * {@link \ICanBoogie\Application} prototype bindings.
  *
  * @method string render($target_or_options, array $additional_options = [])
  *
@@ -29,7 +29,7 @@ use ICanBoogie\Render\TemplateResolver;
  * @see \ICanBoogie\Binding\Render\Hooks::get_renderer
  * @see \ICanBoogie\Binding\Render\Hooks::render
  */
-trait CoreBindings
+trait ApplicationBindings
 {
 
 }

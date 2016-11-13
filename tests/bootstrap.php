@@ -11,6 +11,11 @@
 
 namespace ICanBoogie;
 
-$autoload = require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
+
+class Application extends Core
+{
+	use Binding\Render\ApplicationBindings;
+}
 
 boot();

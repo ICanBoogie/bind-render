@@ -11,7 +11,7 @@
 
 namespace ICanBoogie\Binding\Render;
 
-use ICanBoogie\Core;
+use ICanBoogie\Application;
 use ICanBoogie\Render;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
@@ -73,13 +73,13 @@ class Hooks
 	/**
 	 * Renders a template.
 	 *
-	 * @param Core|CoreBindings $app
+	 * @param Application $app
 	 * @param mixed $target_or_options
 	 * @param array $additional_options
 	 *
 	 * @return mixed
 	 */
-	static public function render(Core $app, $target_or_options, array $additional_options = [])
+	static public function render(Application $app, $target_or_options, array $additional_options = [])
 	{
 		return $app->renderer->render($target_or_options, $additional_options);
 	}

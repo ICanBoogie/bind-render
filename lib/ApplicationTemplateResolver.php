@@ -18,8 +18,6 @@ use ICanBoogie\Render\TemplateResolverTrait;
 
 /**
  * Decorates a template resolver and adds support for the application paths.
- *
- * @package ICanBoogie\Binding\Render
  */
 class ApplicationTemplateResolver implements TemplateResolverDecorator
 {
