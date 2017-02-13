@@ -39,7 +39,10 @@
 	},
 	"extra": {
 		"icanboogie": {
-			"config-path": "config"
+			"config-path": "config",
+			"config-constructor": {
+				"render_engines": "ICanBoogie\\Binding\\Render\\RenderConfig::synthesise_engines#render"
+			}
 		}
 	}
 }

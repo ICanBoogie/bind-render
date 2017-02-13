@@ -9,9 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie;
+namespace ICanBoogie\Binding\Render;
 
-class Application extends Core
-{
-	use Binding\Render\ApplicationBindings;
-}
+return [
+
+	RenderConfig::ENGINES => [
+
+		'.one' => function () {
+
+			return 'one';
+
+		},
+
+		'.three' => function () {
+
+			return 'three';
+
+		}
+
+	]
+
+];

@@ -11,13 +11,11 @@
 
 namespace ICanBoogie\Binding\Render;
 
-use ICanBoogie\Core;
+use ICanBoogie\Application;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
-
-use ICanBoogie\Application;
-
 use function ICanBoogie\app;
+use function ICanBoogie\Render\get_engines;
 
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
@@ -79,5 +77,23 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 		/* @var $app Application */
 
 		Hooks::render($app, $target_or_options, $additional_options);
+	}
+
+	public function test_config()
+	{
+		$config = app()->configs[RenderConfig::DERIVED_ENGINES];
+		$keys = [ '.one', '.two', '.three' ];
+
+		$this->assertSame($keys, array_keys($config));
+
+		foreach ($keys as $key)
+		{
+			$this->assertSame(substr($key, 1), $config[$key]());
+		}
+	}
+
+	public function test_engine_collection_should_include_engines_from_config()
+	{
+		$this->assertSame([ '.phtml', '.one', '.two', '.three' ], array_keys(iterator_to_array(get_engines())));
 	}
 }

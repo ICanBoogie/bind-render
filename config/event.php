@@ -2,12 +2,11 @@
 
 namespace ICanBoogie\Binding\Render;
 
-use ICanBoogie;
-
 $hooks = Hooks::class . '::';
 
 return [
 
-	ICanBoogie\Render\BasicTemplateResolver::class . '::alter' => $hooks . 'alter_template_resolver'
+	'ICanBoogie\Render\BasicTemplateResolver::alter' => $hooks . 'on_alter_template_resolver',
+	'ICanBoogie\Render\EngineCollection::alter'      => $hooks . 'on_alter_engines'
 
 ];

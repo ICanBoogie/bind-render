@@ -11,6 +11,7 @@
 
 namespace ICanBoogie\Binding\Render;
 
+use function ICanBoogie\app;
 use ICanBoogie\Application;
 use ICanBoogie\Render;
 use ICanBoogie\Render\EngineCollection;
@@ -31,9 +32,21 @@ class Hooks
 	 * @param TemplateResolver\AlterEvent $event
 	 * @param TemplateResolver $target
 	 */
-	static public function alter_template_resolver(TemplateResolver\AlterEvent $event, TemplateResolver $target)
+	static public function on_alter_template_resolver(TemplateResolver\AlterEvent $event, TemplateResolver $target)
 	{
 		$event->instance = new ApplicationTemplateResolver($event->instance, get_autoconfig()['app-paths']);
+	}
+
+	/**
+	 * @param EngineCollection\AlterEvent $event
+	 * @param EngineCollection $target
+	 */
+	static public function on_alter_engines(EngineCollection\AlterEvent $event, EngineCollection $target)
+	{
+		foreach (app()->configs[RenderConfig::DERIVED_ENGINES] as $extension => $engine)
+		{
+			$target[$extension] = $engine;
+		}
 	}
 
 	/*
