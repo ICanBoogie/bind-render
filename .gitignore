@@ -1,5 +1,3 @@
-build/coverage
+build
 composer.lock
-docs/
-vendor/
-tests/repository/
+vendor
