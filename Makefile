@@ -1,7 +1,7 @@
 # customization
 
 PACKAGE_NAME = icanboogie/bind-render
-PACKAGE_VERSION = 0.5.0
+PACKAGE_VERSION = 0.6
 
 # do not edit the following lines
 
@@ -9,10 +9,10 @@ usage:
 	@echo "test:  Runs the test suite.\ndoc:   Creates the documentation.\nclean: Removes the documentation, the dependencies and the Composer files."
 
 vendor:
-	@COMPOSER_ROOT_VERSION=$(PACKAGE_VERSION) composer install --prefer-dist
+	@composer install
 
 update:
-	@COMPOSER_ROOT_VERSION=$(PACKAGE_VERSION) composer update --prefer-dist
+	@composer update
 
 autoload: vendor
 	@composer dump-autoload
@@ -22,7 +22,7 @@ test: vendor
 
 test-coverage: vendor
 	@mkdir -p build/coverage
-	@phpunit --coverage-html build/coverage
+	@phpunit --coverage-html ../build/coverage
 
 doc: vendor
 	@mkdir -p build/docs

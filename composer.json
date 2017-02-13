@@ -24,13 +24,15 @@
 		"icanboogie/icanboogie": "^4.0",
 		"icanboogie/render": "^0.6"
 	},
-	"require-dev": {
-		"psr/log": "1.0.0"
-	},
 	"autoload": {
 		"psr-4": {
 			"ICanBoogie\\Binding\\Render\\": "lib"
 		}
+	},
+	"autoload-dev": {
+		"classmap": [
+			"tests/Application.php"
+		]
 	},
 	"scripts": {
 		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
