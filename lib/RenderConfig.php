@@ -46,6 +46,6 @@ final class RenderConfig
 			$engines[] = $fragment[self::ENGINES];
 		}
 
-		return array_merge(...$engines);
+		return $engines ? array_merge(...$engines) : [];
 	}
 }
