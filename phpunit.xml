@@ -11,14 +11,14 @@
 	syntaxCheck="false"
 	bootstrap="./tests/bootstrap.php"
 >
-    <testsuites>
-        <testsuite name="ICanBoogie/bind-render Test Suite">
-            <directory>./tests</directory>
-        </testsuite>
-    </testsuites>
+	<testsuites>
+		<testsuite name="ICanBoogie/bind-render">
+			<directory>./tests</directory>
+		</testsuite>
+	</testsuites>
 
 	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
+		<whitelist processUncoveredFilesFromWhitelist="false">
 			<directory suffix=".php">./lib</directory>
 		</whitelist>
 	</filter>
