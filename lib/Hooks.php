@@ -12,13 +12,12 @@
 namespace ICanBoogie\Binding\Render;
 
 use function ICanBoogie\app;
+use function ICanBoogie\get_autoconfig;
 use ICanBoogie\Application;
 use ICanBoogie\Render;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
 use ICanBoogie\Render\TemplateResolver;
-
-use function ICanBoogie\get_autoconfig;
 
 class Hooks
 {

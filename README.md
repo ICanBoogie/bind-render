@@ -1,10 +1,9 @@
 # bind-render
 
 [![Release](https://img.shields.io/packagist/v/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
-[![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render/master.svg)](http://travis-ci.org/ICanBoogie/bind-render)
-[![HHVM](https://img.shields.io/hhvm/icanboogie/bind-render.svg)](http://hhvm.h4cc.de/package/icanboogie/bind-render)
-[![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/bind-render/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/bind-render)
-[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-render/master.svg)](https://coveralls.io/r/ICanBoogie/bind-render)
+[![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render.svg)](http://travis-ci.org/ICanBoogie/bind-render)
+[![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/bind-render.svg)](https://scrutinizer-ci.com/g/ICanBoogie/bind-render)
+[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-render.svg)](https://coveralls.io/r/ICanBoogie/bind-render)
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
 
 The **icanboogie/bind-render** package binds [icanboogie/render][] to [ICanBoogie][], using its
@@ -90,9 +89,7 @@ The package requires PHP 5.6 or later.
 
 The recommended way to install this package is through [Composer](http://getcomposer.org/):
 
-```
-$ composer require icanboogie/bind-render
-```
+	$ composer require icanboogie/bind-render
 
 
 
@@ -127,8 +124,8 @@ The test suite is ran with the `make test` command. [PHPUnit](https://phpunit.de
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
-[![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render/master.svg)](https://travis-ci.org/ICanBoogie/bind-render)
-[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-render/master.svg)](https://coveralls.io/r/ICanBoogie/bind-render)
+[![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render.svg)](https://travis-ci.org/ICanBoogie/bind-render)
+[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-render.svg)](https://coveralls.io/r/ICanBoogie/bind-render)
 
 
 
