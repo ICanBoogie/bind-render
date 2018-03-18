@@ -17,7 +17,7 @@ use ICanBoogie\Render\Renderer;
 use function ICanBoogie\app;
 use function ICanBoogie\Render\get_engines;
 
-class HooksTest extends \PHPUnit_Framework_TestCase
+class HooksTest extends \PHPUnit\Framework\TestCase
 {
 	static private $app;
 

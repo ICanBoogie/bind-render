@@ -44,7 +44,7 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 	/**
 	 * @inheritdoc
 	 */
-	public function resolve($name, array $extensions, &$tried = [])
+	public function resolve(string $name, array $extensions, array &$tried = [])
 	{
 		if (strpos($name, '//') === 0)
 		{
@@ -70,7 +70,7 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 	 *
 	 * @return string|null
 	 */
-	protected function resolve_from_app($name, array $extensions, &$tried)
+	private function resolve_from_app(string $name, array $extensions, array &$tried): ?string
 	{
 		return $this->resolve_path($this->resolve_tries($this->paths, $name, $extensions), $tried);
 	}
@@ -84,15 +84,15 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 	 *
 	 * @return array
 	 */
-	protected function expend_paths(array $paths)
+	private function expend_paths(array $paths): array
 	{
 		$resolved_paths = [];
 
-		foreach (array_reverse($paths) as $path)
+		foreach (\array_reverse($paths) as $path)
 		{
 			$path .= 'templates' . DIRECTORY_SEPARATOR;
 
-			if (file_exists($path))
+			if (\file_exists($path))
 			{
 				$resolved_paths[] = $path;
 			}
