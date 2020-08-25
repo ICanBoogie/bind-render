@@ -11,13 +11,15 @@
 
 namespace ICanBoogie\Binding\Render;
 
+use function array_merge;
+
 /**
  * Configuration for the `icanboogie/render` package.
  */
 final class RenderConfig
 {
-	const DERIVED_ENGINES = 'render_engines';
-	const ENGINES = 'engines';
+	public const DERIVED_ENGINES = 'render_engines';
+	public const ENGINES = 'engines';
 
 	/**
 	 * Nope
@@ -46,6 +48,6 @@ final class RenderConfig
 			$engines[] = $fragment[self::ENGINES];
 		}
 
-		return $engines ? \array_merge(...$engines) : [];
+		return $engines ? array_merge(...$engines) : [];
 	}
 }

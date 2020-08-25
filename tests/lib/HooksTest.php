@@ -14,14 +14,15 @@ namespace ICanBoogie\Binding\Render;
 use ICanBoogie\Application;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
+use PHPUnit\Framework\TestCase;
 use function ICanBoogie\app;
 use function ICanBoogie\Render\get_engines;
 
-class HooksTest extends \PHPUnit\Framework\TestCase
+class HooksTest extends TestCase
 {
 	static private $app;
 
-	static public function setupBeforeClass()
+	static public function setupBeforeClass(): void
 	{
 		self::$app = app();
 	}

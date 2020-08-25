@@ -43,7 +43,7 @@ Also, the "//" prefix can be used to search for templates from these paths .e.g.
 ## Defining engines using `render` config fragments
 
 The preferred method to define render engines is using `render` config fragments, because they
-can be synthesised and cached.
+can be synthesized and cached.
 
 The following example demonstrates how to define and engine for the `.phtml` templates:
 

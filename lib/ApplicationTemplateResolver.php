@@ -15,11 +15,13 @@ use ICanBoogie\Render\TemplateResolver;
 use ICanBoogie\Render\TemplateResolverDecorator;
 use ICanBoogie\Render\TemplateResolverDecoratorTrait;
 use ICanBoogie\Render\TemplateResolverTrait;
+use function array_reverse;
+use function file_exists;
 
 /**
  * Decorates a template resolver and adds support for the application paths.
  */
-class ApplicationTemplateResolver implements TemplateResolverDecorator
+final class ApplicationTemplateResolver implements TemplateResolverDecorator
 {
 	use TemplateResolverTrait;
 	use TemplateResolverDecoratorTrait;
@@ -32,7 +34,6 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 	private $paths;
 
 	/**
-	 * @param TemplateResolver $template_resolver
 	 * @param array $paths Application paths.
 	 */
 	public function __construct(TemplateResolver $template_resolver, array $paths)
@@ -63,12 +64,6 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 
 	/**
 	 * Resolves a template name from the application paths.
-	 *
-	 * @param string $name
-	 * @param array $extensions
-	 * @param array $tried
-	 *
-	 * @return string|null
 	 */
 	private function resolve_from_app(string $name, array $extensions, array &$tried): ?string
 	{
@@ -79,20 +74,16 @@ class ApplicationTemplateResolver implements TemplateResolverDecorator
 	 * Expends application paths into template paths.
 	 *
 	 * **Note:** Paths that do not have a "templates" directory are discarded.
-	 *
-	 * @param array $paths
-	 *
-	 * @return array
 	 */
 	private function expend_paths(array $paths): array
 	{
 		$resolved_paths = [];
 
-		foreach (\array_reverse($paths) as $path)
+		foreach (array_reverse($paths) as $path)
 		{
 			$path .= 'templates' . DIRECTORY_SEPARATOR;
 
-			if (\file_exists($path))
+			if (file_exists($path))
 			{
 				$resolved_paths[] = $path;
 			}

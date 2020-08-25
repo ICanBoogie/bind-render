@@ -19,7 +19,7 @@ use ICanBoogie\Render\TemplateResolver;
 use function ICanBoogie\app;
 use function ICanBoogie\get_autoconfig;
 
-class Hooks
+final class Hooks
 {
 	/*
 	 * Events
@@ -27,19 +27,12 @@ class Hooks
 
 	/**
 	 * Decorates the template resolver with an {@link ApplicationTemplateResolver} instance.
-	 *
-	 * @param TemplateResolver\AlterEvent $event
-	 * @param TemplateResolver $target
 	 */
 	static public function on_alter_template_resolver(TemplateResolver\AlterEvent $event, TemplateResolver $target): void
 	{
 		$event->instance = new ApplicationTemplateResolver($event->instance, get_autoconfig()['app-paths']);
 	}
 
-	/**
-	 * @param EngineCollection\AlterEvent $event
-	 * @param EngineCollection $target
-	 */
 	static public function on_alter_engines(EngineCollection\AlterEvent $event, EngineCollection $target): void
 	{
 		foreach (app()->configs[RenderConfig::DERIVED_ENGINES] as $extension => $engine)
@@ -54,8 +47,6 @@ class Hooks
 
 	/**
 	 * Returns an engine collection.
-	 *
-	 * @return EngineCollection
 	 */
 	static public function get_template_engines(): EngineCollection
 	{
@@ -64,8 +55,6 @@ class Hooks
 
 	/**
 	 * Returns a clone of the shared template resolver.
-	 *
-	 * @return TemplateResolver
 	 */
 	static public function get_template_resolver(): TemplateResolver
 	{
@@ -74,8 +63,6 @@ class Hooks
 
 	/**
 	 * Returns a clone of the shared renderer.
-	 *
-	 * @return Renderer
 	 */
 	static public function get_renderer(): Renderer
 	{
@@ -85,11 +72,7 @@ class Hooks
 	/**
 	 * Renders a template.
 	 *
-	 * @param Application $app
 	 * @param mixed $target_or_options
-	 * @param array $additional_options
-	 *
-	 * @return string|null
 	 */
 	static public function render(Application $app, $target_or_options, array $additional_options = []): ?string
 	{

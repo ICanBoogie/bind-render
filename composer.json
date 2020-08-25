@@ -18,11 +18,10 @@
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
-	"prefer-dist": true,
 	"require": {
-		"php": "^7.2",
+		"php": ">=7.2",
 		"icanboogie/icanboogie": "^5.0",
-		"icanboogie/render": "^0.7"
+		"icanboogie/render": "^0.7|^0.8"
 	},
 	"autoload": {
 		"psr-4": {
