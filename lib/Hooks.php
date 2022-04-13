@@ -16,66 +16,68 @@ use ICanBoogie\Render;
 use ICanBoogie\Render\EngineCollection;
 use ICanBoogie\Render\Renderer;
 use ICanBoogie\Render\TemplateResolver;
+
 use function ICanBoogie\app;
 use function ICanBoogie\get_autoconfig;
 
 final class Hooks
 {
-	/*
-	 * Events
-	 */
+    /*
+     * Events
+     */
 
-	/**
-	 * Decorates the template resolver with an {@link ApplicationTemplateResolver} instance.
-	 */
-	static public function on_alter_template_resolver(TemplateResolver\AlterEvent $event, TemplateResolver $target): void
-	{
-		$event->instance = new ApplicationTemplateResolver($event->instance, get_autoconfig()['app-paths']);
-	}
+    /**
+     * Decorates the template resolver with an {@link ApplicationTemplateResolver} instance.
+     */
+    public static function on_alter_template_resolver(
+        TemplateResolver\AlterEvent $event,
+        TemplateResolver $target
+    ): void {
+        $event->instance = new ApplicationTemplateResolver($event->instance, get_autoconfig()['app-paths']);
+    }
 
-	static public function on_alter_engines(EngineCollection\AlterEvent $event, EngineCollection $target): void
-	{
-		foreach (app()->configs[RenderConfig::DERIVED_ENGINES] as $extension => $engine)
-		{
-			$target[$extension] = $engine;
-		}
-	}
+    public static function on_alter_engines(EngineCollection\AlterEvent $event, EngineCollection $target): void
+    {
+        foreach (app()->configs[RenderConfig::DERIVED_ENGINES] as $extension => $engine) {
+            $target[$extension] = $engine;
+        }
+    }
 
-	/*
-	 * Prototypes
-	 */
+    /*
+     * Prototypes
+     */
 
-	/**
-	 * Returns an engine collection.
-	 */
-	static public function get_template_engines(): EngineCollection
-	{
-		return Render\get_engines();
-	}
+    /**
+     * Returns an engine collection.
+     */
+    public static function get_template_engines(): EngineCollection
+    {
+        return Render\get_engines();
+    }
 
-	/**
-	 * Returns a clone of the shared template resolver.
-	 */
-	static public function get_template_resolver(): TemplateResolver
-	{
-		return clone Render\get_template_resolver();
-	}
+    /**
+     * Returns a clone of the shared template resolver.
+     */
+    public static function get_template_resolver(): TemplateResolver
+    {
+        return clone Render\get_template_resolver();
+    }
 
-	/**
-	 * Returns a clone of the shared renderer.
-	 */
-	static public function get_renderer(): Renderer
-	{
-		return clone Render\get_renderer();
-	}
+    /**
+     * Returns a clone of the shared renderer.
+     */
+    public static function get_renderer(): Renderer
+    {
+        return clone Render\get_renderer();
+    }
 
-	/**
-	 * Renders a template.
-	 *
-	 * @param mixed $target_or_options
-	 */
-	static public function render(Application $app, $target_or_options, array $additional_options = []): ?string
-	{
-		return $app->renderer->render($target_or_options, $additional_options);
-	}
+    /**
+     * Renders a template.
+     *
+     * @param mixed $target_or_options
+     */
+    public static function render(Application $app, $target_or_options, array $additional_options = []): ?string
+    {
+        return $app->renderer->render($target_or_options, $additional_options);
+    }
 }

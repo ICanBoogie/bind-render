@@ -13,20 +13,18 @@ namespace ICanBoogie\Binding\Render;
 
 return [
 
-	RenderConfig::ENGINES => [
+    RenderConfig::ENGINES => [
 
-		'.one' => function () {
+        '.one' => function () {
 
-			return 'should-no-be-this-one';
+            return 'should-no-be-this-one';
+        },
 
-		},
+        '.two' => function () {
 
-		'.two' => function () {
+            return 'two';
+        }
 
-			return 'two';
-
-		}
-
-	]
+    ]
 
 ];

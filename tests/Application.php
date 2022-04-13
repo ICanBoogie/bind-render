@@ -13,5 +13,5 @@ namespace ICanBoogie;
 
 class Application extends ApplicationAbstract
 {
-	use Binding\Render\ApplicationBindings;
+    use Binding\Render\ApplicationBindings;
 }

@@ -18,36 +18,33 @@ use function array_merge;
  */
 final class RenderConfig
 {
-	public const DERIVED_ENGINES = 'render_engines';
-	public const ENGINES = 'engines';
+    public const DERIVED_ENGINES = 'render_engines';
+    public const ENGINES = 'engines';
 
-	/**
-	 * Nope
-	 */
-	private function __construct() // @codeCoverageIgnoreStart
-	{
+    /**
+     * Nope
+     */
+    private function __construct() // @codeCoverageIgnoreStart
+    {
+    } // @codeCoverageIgnoreEnd
 
-	} // @codeCoverageIgnoreEnd
+    /**
+     * @param array $fragments
+     *
+     * @return array
+     */
+    public static function synthesise_engines(array $fragments): array
+    {
+        $engines = [];
 
-	/**
-	 * @param array $fragments
-	 *
-	 * @return array
-	 */
-	static public function synthesise_engines(array $fragments): array
-	{
-		$engines = [];
+        foreach ($fragments as $fragment) {
+            if (empty($fragment[self::ENGINES])) {
+                continue; // @codeCoverageIgnore
+            }
 
-		foreach ($fragments as $fragment)
-		{
-			if (empty($fragment[self::ENGINES]))
-			{
-				continue; // @codeCoverageIgnore
-			}
+            $engines[] = $fragment[self::ENGINES];
+        }
 
-			$engines[] = $fragment[self::ENGINES];
-		}
-
-		return $engines ? array_merge(...$engines) : [];
-	}
+        return $engines ? array_merge(...$engines) : [];
+    }
 }

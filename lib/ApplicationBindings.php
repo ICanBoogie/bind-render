@@ -31,5 +31,4 @@ use ICanBoogie\Render\TemplateResolver;
  */
 trait ApplicationBindings
 {
-
 }
