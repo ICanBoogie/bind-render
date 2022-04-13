@@ -39,7 +39,7 @@ test-container:
 
 .PHONY: lint
 lint:
-	@phpcs -s
+#	@phpcs -s
 	@vendor/bin/phpstan
 
 .PHONY: doc
