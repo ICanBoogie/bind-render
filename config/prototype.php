@@ -13,6 +13,12 @@ namespace ICanBoogie\Binding\Render;
 
 $hooks = Hooks::class . '::';
 
+/**
+ * @uses Hooks::get_template_engines()
+ * @uses Hooks::get_template_resolver()
+ * @uses Hooks::get_renderer()
+ * @uses Hooks::render()
+ */
 return [
 
 	'ICanBoogie\Application::lazy_get_template_engines'  => $hooks . 'get_template_engines',

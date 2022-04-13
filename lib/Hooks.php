@@ -73,10 +73,8 @@ final class Hooks
 
     /**
      * Renders a template.
-     *
-     * @param mixed $target_or_options
      */
-    public static function render(Application $app, $target_or_options, array $additional_options = []): ?string
+    public static function render(Application $app, mixed $target_or_options, array $additional_options = []): ?string
     {
         return $app->renderer->render($target_or_options, $additional_options);
     }

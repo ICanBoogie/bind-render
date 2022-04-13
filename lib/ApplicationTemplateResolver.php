@@ -30,12 +30,12 @@ final class ApplicationTemplateResolver implements TemplateResolverDecorator
     /**
      * Application paths.
      *
-     * @var array
+     * @var string[]
      */
-    private $paths;
+    private array $paths;
 
     /**
-     * @param array $paths Application paths.
+     * @param string[] $paths Application paths.
      */
     public function __construct(TemplateResolver $template_resolver, array $paths)
     {
@@ -48,7 +48,7 @@ final class ApplicationTemplateResolver implements TemplateResolverDecorator
      */
     public function resolve(string $name, array $extensions, array &$tried = [])
     {
-        if (strpos($name, '//') === 0) {
+        if (str_starts_with($name, '//')) {
             return $this->resolve_from_app(substr($name, 2), $extensions, $tried);
         }
 
