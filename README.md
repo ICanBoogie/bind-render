@@ -1,7 +1,6 @@
 # bind-render
 
 [![Release](https://img.shields.io/packagist/v/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
-[![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render.svg)](http://travis-ci.org/ICanBoogie/bind-render)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/bind-render.svg)](https://scrutinizer-ci.com/g/ICanBoogie/bind-render)
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-render.svg)](https://coveralls.io/r/ICanBoogie/bind-render)
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-render.svg)](https://packagist.org/packages/icanboogie/bind-render)
@@ -75,67 +74,19 @@ return [
 
 
 
+## Continuous Integration
 
+The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/HTTP/actions).
 
-## Requirements
-
-The package requires PHP 7.2 or later.
-
-
-
-
-
-## Installation
-
-The recommended way to install this package is through [Composer](http://getcomposer.org/):
-
-	$ composer require icanboogie/bind-render
-
-
-
-
-
-### Cloning the repository
-
-The package is [available on GitHub](https://github.com/ICanBoogie/bind-render), its repository can be
-cloned with the following command line:
-
-	$ git clone https://github.com/ICanBoogie/bind-render.git
-
-
-
-
-
-## Documentation
-
-The package is documented as part of the [ICanBoogie][] framework
-[documentation][]. You can generate the documentation for the package and its dependencies with
-the `make doc` command. The documentation is generated in the `build/docs` directory.
-[ApiGen](http://apigen.org/) is required. The directory can later be cleaned with
-the `make clean` command.
-
-
-
-
-
-## Testing
-
-The test suite is ran with the `make test` command. [PHPUnit](https://phpunit.de/) and [Composer](http://getcomposer.org/) need to be globally available to run the suite. The command installs dependencies as required. The `make test-coverage` command runs test suite and also creates an HTML coverage report in "build/coverage". The directory can later be cleaned with the `make clean` command.
-
-The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
-
-[![Build Status](https://img.shields.io/travis/ICanBoogie/bind-render.svg)](https://travis-ci.org/ICanBoogie/bind-render)
-[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-render.svg)](https://coveralls.io/r/ICanBoogie/bind-render)
-
-
+[![Tests](https://github.com/ICanBoogie/bind-render/workflows/test/badge.svg?branch=master)](https://github.com/ICanBoogie/HTTP/actions?query=workflow%3Atest)
+[![Static Analysis](https://github.com/ICanBoogie/bind-render/workflows/static-analysis/badge.svg?branch=master)](https://github.com/ICanBoogie/HTTP/actions?query=workflow%3Astatic-analysis)
+[![Code Style](https://github.com/ICanBoogie/bind-render/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/HTTP/actions?query=workflow%3Acode-style)
 
 
 
 ## License
 
-**icanboogie/bind-render** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
-
-
+**icanboogie/bind-render** is released under the [BSD-3-Clause](LICENSE).
 
 
 
