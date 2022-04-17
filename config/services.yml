@@ -1,0 +1,42 @@
+parameters:
+  render.engine.mapping:
+    '.php': ICanBoogie\Render\PHPEngine
+    '.phtml': ICanBoogie\Render\PHPEngine
+
+  render.application_paths:
+  - app/all
+
+services:
+  _defaults:
+    autowire: true
+
+  ICanBoogie\Render\PHPEngine:
+    tags:
+    - { name: 'render.engine' }
+
+  ICanBoogie\Render\EngineProvider\Container:
+    arguments:
+      $container: !tagged_locator { tag: render.engine }
+      $mapping: '%render.engine.mapping%'
+
+  ICanBoogie\Render\EngineProvider:
+    alias: ICanBoogie\Render\EngineProvider\Container
+
+  #
+
+  ICanBoogie\Render\BasicTemplateResolver:
+    $paths:
+      - app/all/templates
+
+#  ICanBoogie\Binding\Render\ApplicationTemplateResolver:
+#    decorates: ICanBoogie\Render\BasicTemplateResolver
+#    arguments:
+#      $paths: '%render.application_paths%'
+
+  ICanBoogie\Render\TemplateResolver:
+    alias: ICanBoogie\Render\BasicTemplateResolver
+
+  #
+
+  ICanBoogie\Render\Renderer:
+    public: true

@@ -24,7 +24,7 @@
 	"require": {
 		"php": ">=8.1",
 		"icanboogie/icanboogie": "^6.0",
-		"icanboogie/render": "^0.7|^0.8"
+		"icanboogie/render": "^6.0"
 	},
 	"require-dev": {
 		"phpstan/phpstan": "^1.5",
@@ -36,6 +36,10 @@
 		}
 	},
 	"autoload-dev": {
+        "psr-4": {
+            "ICanBoogie\\": "tests",
+            "Test\\ICanBoogie\\Binding\\Render\\": "tests/lib"
+        },
 		"classmap": [
 			"tests/Application.php"
 		]

@@ -46,7 +46,7 @@ final class ApplicationTemplateResolver implements TemplateResolverDecorator
     /**
      * @inheritdoc
      */
-    public function resolve(string $name, array $extensions, array &$tried = [])
+    public function resolve(string $name, array $extensions, array &$tried = []): ?string
     {
         if (str_starts_with($name, '//')) {
             return $this->resolve_from_app(substr($name, 2), $extensions, $tried);

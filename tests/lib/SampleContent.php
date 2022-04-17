@@ -9,22 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Binding\Render;
+namespace Test\ICanBoogie\Binding\Render;
 
-return [
-
-    RenderConfig::ENGINES => [
-
-        '.one' => function () {
-
-            return 'one';
-        },
-
-        '.three' => function () {
-
-            return 'three';
-        }
-
-    ]
-
-];
+class SampleContent
+{
+    public function __construct(
+        public readonly string $content
+    ) {
+    }
+}

@@ -14,59 +14,34 @@ template resolver that uses the application paths to look for templates.
 
 /* @var ICanBoogie\Application $app */
 
-echo get_class($app->template_engines);  // ICanBoogie\Render\EngineCollection
-echo get_class($app->template_resolver); // ICanBoogie\Binding\Render\ApplicationTemplateResolver
-echo get_class($app->renderer);          // ICanBoogie\Render\Renderer
-
 $app->render($app->models['articles']->one);
 ```
-
-The shared [BasicTemplateResolver][] instance is replaced by an [ApplicationTemplateResolver][]
-instance during the `TemplateResolver::alter` event of class [TemplateResolver\AlterEvent].
-
-
 
 
 
 ## Enhanced template resolver
 
 [ApplicationTemplateResolver][] extends the template resolver used by [icanboogie/render][]
-and [icanboogie/view][] to search templates in the application paths (see [Multi-site support](https://github.com/ICanBoogie/ICanBoogie#multi-site-support)).
+and [icanboogie/view][] to search templates in the application paths (see [Multi-site support][]).
 Also, the "//" prefix can be used to search for templates from these paths .e.g.
 "//my/special/templates/_form".
 
 
 
-
-
-## Defining engines using `render` config fragments
-
-The preferred method to define render engines is using `render` config fragments, because they
-can be synthesized and cached.
+## Defining engines using services
 
 The following example demonstrates how to define and engine for the `.phtml` templates:
 
-```php
-<?php
+```yaml
+parameters:
+    render.engines.mapping:
+        '.php': ICanBoogie\Render\PHPEngine
+        '.phtml': ICanBoogie\Render\PHPEngine
+        '.my': App\MyEngine
 
-// config/render.php
-
-namespace ICanBoogie\Binding\Render;
-
-use ICanBoogie\Render\PHPEngine;
-
-return [
-
-	RenderConfig::ENGINES => [
-
-		'.phtml' => PHPEngine::class
-
-	]
-
-];
+services:
+    App\MyEngine: ~
 ```
-
-
 
 
 
@@ -103,8 +78,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 
 
-[documentation]:               https://icanboogie.org/api/bind-render/0.6/
-[ApplicationTemplateResolver]: https://icanboogie.org/api/bind-render/0.6/class-ICanBoogie.Binding.Render.ApplicationTemplateResolver.html
+[ApplicationTemplateResolver]: lib/ApplicationTemplateResolver.php
 [Application]:                 https://icanboogie.org/docs/4.0/the-application-class
 [BasicTemplateResolver]:       https://icanboogie.org/api/render/0.6/class-ICanBoogie.Render.BasicTemplateResolver.html
 [TemplateResolver\AlterEvent]: https://icanboogie.org/api/render/0.6/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
@@ -112,3 +86,4 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 [icanboogie/render]:           https://github.com/ICanBoogie/Render
 [icanboogie/view]:             https://github.com/ICanBoogie/View
 [ICanBoogie]:                  https://github.com/ICanBoogie/ICanBoogie
+[Multi-site support]:          https://github.com/ICanBoogie/ICanBoogie#multi-site-support
