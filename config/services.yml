@@ -1,7 +1,5 @@
 parameters:
-  render.engine.mapping:
-    '.php': ICanBoogie\Render\PHPEngine
-    '.phtml': ICanBoogie\Render\PHPEngine
+  render.engine_by_extension: ~ # provided by compiler pass
 
   render.application_paths:
   - app/all
@@ -13,11 +11,13 @@ services:
   ICanBoogie\Render\PHPEngine:
     tags:
     - { name: 'render.engine' }
+    - { name: 'render.extension', extension: '.php' }
+    - { name: 'render.extension', extension: '.phtml' }
 
   ICanBoogie\Render\EngineProvider\Container:
     arguments:
       $container: !tagged_locator { tag: render.engine }
-      $mapping: '%render.engine.mapping%'
+      $mapping: '%render.engine_by_extension%'
 
   ICanBoogie\Render\EngineProvider:
     alias: ICanBoogie\Render\EngineProvider\Container

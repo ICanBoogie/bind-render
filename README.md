@@ -30,17 +30,20 @@ Also, the "//" prefix can be used to search for templates from these paths .e.g.
 
 ## Defining engines using services
 
-The following example demonstrates how to define and engine for the `.phtml` templates:
+A compiler pass is used to build an array of extension/engine airs. Services tagged with
+`render.extension` will be inspected. The pairs are set in the parameter
+`render.engine_by_extension`.
+
+The following example demonstrates how to define an engine for PHP templates and attach the
+extensions `.php` and `.phtml`.
 
 ```yaml
-parameters:
-    render.engines.mapping:
-        '.php': ICanBoogie\Render\PHPEngine
-        '.phtml': ICanBoogie\Render\PHPEngine
-        '.my': App\MyEngine
-
 services:
-    App\MyEngine: ~
+  ICanBoogie\Render\PHPEngine:
+    tags:
+    - { name: 'render.engine' }
+    - { name: 'render.extension', extension: '.php' }
+    - { name: 'render.extension', extension: '.phtml' }
 ```
 
 
@@ -61,7 +64,8 @@ The project is continuously tested by [GitHub actions](https://github.com/ICanBo
 
 ## Code of Conduct
 
-This project adheres to a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project and its
+This project adheres to a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in
+this project and its
 community, you are expected to uphold this code.
 
 

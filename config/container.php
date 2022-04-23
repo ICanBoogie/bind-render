@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Binding\Render;
+use ICanBoogie\Binding\Render\CompilerPass;
+use ICanBoogie\Binding\SymfonyDependencyInjection\ConfigBuilder;
 
-return [
-
-];
+return fn(ConfigBuilder $config) => $config
+    ->add_compiler_pass(CompilerPass::class);
