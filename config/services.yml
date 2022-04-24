@@ -11,8 +11,8 @@ services:
   ICanBoogie\Render\PHPEngine:
     tags:
     - { name: 'render.engine' }
-    - { name: 'render.extension', extension: '.php' }
     - { name: 'render.extension', extension: '.phtml' }
+    - { name: 'render.extension', extension: '.php' }
 
   ICanBoogie\Render\EngineProvider\Container:
     arguments:
