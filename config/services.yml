@@ -1,5 +1,6 @@
 parameters:
   render.engine_by_extension: ~ # provided by compiler pass
+  render.extensions: ~ # provided by compiler pass
 
   render.application_paths:
   - app/all

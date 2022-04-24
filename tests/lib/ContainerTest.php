@@ -27,7 +27,8 @@ final class ContainerTest extends TestCase
      */
 	public function test_parameter(string $param, mixed $expected): void
 	{
-		$this->assertEquals($expected, $this->container->getParameter($param));
+        // "same" because the order is important.
+		$this->assertSame($expected, $this->container->getParameter($param));
 	}
 
     public function provide_parameter(): array
@@ -35,9 +36,14 @@ final class ContainerTest extends TestCase
         return [
 
             [ 'render.engine_by_extension', [
-                '.php' => 'ICanBoogie\Render\PHPEngine',
                 '.phtml' => 'ICanBoogie\Render\PHPEngine',
-            ] ]
+                '.php' => 'ICanBoogie\Render\PHPEngine',
+            ] ],
+
+            [ 'render.extensions', [
+                '.phtml',
+                '.php',
+            ] ],
 
         ];
     }

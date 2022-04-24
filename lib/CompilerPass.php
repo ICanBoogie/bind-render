@@ -16,7 +16,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 final class CompilerPass implements CompilerPassInterface
 {
-    public const PARAMETER = 'render.engine_by_extension';
+    public const PARAMETER_ENGINE_BY_EXTENSION = 'render.engine_by_extension';
+    public const PARAMETER_EXTENSIONS = 'render.extensions';
     public const TAG = 'render.extension';
     public const TAG_KEY = 'extension';
 
@@ -34,6 +35,7 @@ final class CompilerPass implements CompilerPassInterface
             }
         }
 
-        $container->setParameter(self::PARAMETER, $extensions);
+        $container->setParameter(self::PARAMETER_ENGINE_BY_EXTENSION, $extensions);
+        $container->setParameter(self::PARAMETER_EXTENSIONS, array_keys($extensions));
     }
 }
