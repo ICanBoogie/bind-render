@@ -45,6 +45,10 @@ final class ContainerTest extends TestCase
                 '.php',
             ] ],
 
+            [ 'render.template_paths', [
+                'app/all/templates',
+            ] ],
+
         ];
     }
 }

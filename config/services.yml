@@ -2,12 +2,15 @@ parameters:
   render.engine_by_extension: ~ # provided by compiler pass
   render.extensions: ~ # provided by compiler pass
 
-  render.application_paths:
-  - app/all
+  # Used by the template resolver to search files matching template names.
+  render.template_paths:
+  - app/all/templates # Should be first to be able to override modules templates.
 
 services:
   _defaults:
     autowire: true
+
+  # Engines
 
   ICanBoogie\Render\PHPEngine:
     tags:
@@ -23,25 +26,19 @@ services:
   ICanBoogie\Render\EngineProvider:
     alias: ICanBoogie\Render\EngineProvider\Container
 
-  #
-
-  ICanBoogie\Render\BasicTemplateResolver:
-    $paths:
-      - app/all/templates
-
-#  ICanBoogie\Binding\Render\ApplicationTemplateResolver:
-#    decorates: ICanBoogie\Render\BasicTemplateResolver
-#    arguments:
-#      $paths: '%render.application_paths%'
+  # Template resolver
 
   ICanBoogie\Render\TemplateResolver:
     alias: ICanBoogie\Render\BasicTemplateResolver
+
+  ICanBoogie\Render\BasicTemplateResolver:
+    $paths: '%render.template_paths%'
 
   ICanBoogie\Render\TemplateResolver\Memoize:
     decorates: ICanBoogie\Render\TemplateResolver
     decoration_priority: -100
 
-  #
+  # Renderer
 
   ICanBoogie\Render\Renderer:
     public: true
