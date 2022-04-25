@@ -37,6 +37,10 @@ services:
   ICanBoogie\Render\TemplateResolver:
     alias: ICanBoogie\Render\BasicTemplateResolver
 
+  ICanBoogie\Render\TemplateResolver\Memoize:
+    decorates: ICanBoogie\Render\TemplateResolver
+    decoration_priority: -100
+
   #
 
   ICanBoogie\Render\Renderer:
