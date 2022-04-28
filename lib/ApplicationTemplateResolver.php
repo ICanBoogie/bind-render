@@ -63,6 +63,9 @@ final class ApplicationTemplateResolver implements TemplateResolverDecorator
 
     /**
      * Resolves a template name from the application paths.
+     *
+     * @param string[] $extensions The supported extensions.
+     * @param string[] $tried Tried pathname collection.
      */
     private function resolve_from_app(string $name, array $extensions, array &$tried): ?string
     {
@@ -73,6 +76,10 @@ final class ApplicationTemplateResolver implements TemplateResolverDecorator
      * Expends application paths into template paths.
      *
      * **Note:** Paths that do not have a "templates" directory are discarded.
+     *
+     * @param string[] $paths Application paths.
+     *
+     * @return string[]
      */
     private function expend_paths(array $paths): array
     {

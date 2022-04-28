@@ -21,7 +21,7 @@ final class CompilerPass implements CompilerPassInterface
     public const TAG = 'render.extension';
     public const TAG_KEY = 'extension';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         /**
          * @var array<string, string>

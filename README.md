@@ -19,6 +19,14 @@ $app->render($app->models['articles']->one);
 
 
 
+#### Installation
+
+```bash
+composer require icanboogie/bind-render
+```
+
+
+
 ## Enhanced template resolver
 
 [ApplicationTemplateResolver][] extends the template resolver used by [icanboogie/render][]
@@ -54,19 +62,18 @@ services:
 
 ## Continuous Integration
 
-The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/HTTP/actions).
+The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/bind-render/actions).
 
-[![Tests](https://github.com/ICanBoogie/bind-render/workflows/test/badge.svg?branch=master)](https://github.com/ICanBoogie/HTTP/actions?query=workflow%3Atest)
-[![Static Analysis](https://github.com/ICanBoogie/bind-render/workflows/static-analysis/badge.svg?branch=master)](https://github.com/ICanBoogie/HTTP/actions?query=workflow%3Astatic-analysis)
-[![Code Style](https://github.com/ICanBoogie/bind-render/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/HTTP/actions?query=workflow%3Acode-style)
+[![Tests](https://github.com/ICanBoogie/bind-render/workflows/test/badge.svg?branch=master)](https://github.com/ICanBoogie/bind-render/actions?query=workflow%3Atest)
+[![Static Analysis](https://github.com/ICanBoogie/bind-render/workflows/static-analysis/badge.svg?branch=master)](https://github.com/ICanBoogie/bind-render/actions?query=workflow%3Astatic-analysis)
+[![Code Style](https://github.com/ICanBoogie/bind-render/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/bind-render/actions?query=workflow%3Acode-style)
 
 
 
 ## Code of Conduct
 
 This project adheres to a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in
-this project and its
-community, you are expected to uphold this code.
+this project and its community, you are expected to uphold this code.
 
 
 

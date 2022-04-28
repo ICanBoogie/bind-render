@@ -24,7 +24,7 @@ test: test-dependencies
 .PHONY: test-coverage
 test-coverage: test-dependencies
 	@mkdir -p build/coverage
-	@$(PHPUNIT) --coverage-html ../build/coverage --coverage-text
+	@XDEBUG_MODE=coverage $(PHPUNIT) --coverage-html ../build/coverage
 
 .PHONY: test-coveralls
 test-coveralls: test-dependencies
@@ -34,19 +34,10 @@ test-coveralls: test-dependencies
 
 .PHONY: test-container
 test-container:
-	@docker-compose run --rm app bash
+	@-docker-compose run --rm app bash
 	@docker-compose down -v
 
 .PHONY: lint
 lint:
-	@phpcs -s
-	@vendor/bin/phpstan
-
-.PHONY: doc
-doc: vendor
-	@mkdir -p build/docs
-	@apigen generate \
-	--source lib \
-	--destination build/docs/ \
-	--title "$(PACKAGE_NAME)" \
-	--template-theme "bootstrap"
+	@XDEBUG_MODE=off phpcs -s
+	@XDEBUG_MODE=off vendor/bin/phpstan
