@@ -40,10 +40,7 @@
         "psr-4": {
             "ICanBoogie\\": "tests",
             "Test\\ICanBoogie\\Binding\\Render\\": "tests/lib"
-        },
-		"classmap": [
-			"tests/Application.php"
-		]
+        }
 	},
 	"scripts": {
 		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
