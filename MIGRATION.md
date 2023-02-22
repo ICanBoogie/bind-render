@@ -6,6 +6,7 @@
 
 - Services are now defined with container.
 - Added DIC compiler pass.
+- Added `TemplateResolver\Chain`, should be the preferred method to chain template providers.
 
 ### Backward Incompatible Changes
 

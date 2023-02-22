@@ -12,8 +12,6 @@
 namespace ICanBoogie\Binding\Render;
 
 use ICanBoogie\Render\TemplateResolver;
-use ICanBoogie\Render\TemplateResolverDecorator;
-use ICanBoogie\Render\TemplateResolverDecoratorTrait;
 use ICanBoogie\Render\TemplateResolverTrait;
 
 use function array_reverse;
@@ -22,10 +20,9 @@ use function file_exists;
 /**
  * Decorates a template resolver and adds support for the application paths.
  */
-final class ApplicationTemplateResolver implements TemplateResolverDecorator
+final class ApplicationTemplateResolver implements TemplateResolver
 {
     use TemplateResolverTrait;
-    use TemplateResolverDecoratorTrait;
 
     /**
      * Application paths.
@@ -37,9 +34,8 @@ final class ApplicationTemplateResolver implements TemplateResolverDecorator
     /**
      * @param string[] $paths Application paths.
      */
-    public function __construct(TemplateResolver $template_resolver, array $paths)
+    public function __construct(array $paths)
     {
-        $this->template_resolver = $template_resolver;
         $this->paths = $this->expend_paths($paths);
     }
 
@@ -52,13 +48,7 @@ final class ApplicationTemplateResolver implements TemplateResolverDecorator
             return $this->resolve_from_app(substr($name, 2), $extensions, $tried);
         }
 
-        $template = $this->resolve_from_app($name, $extensions, $tried);
-
-        if ($template) {
-            return $template;
-        }
-
-        return $this->template_resolver->resolve($name, $extensions, $tried);
+        return $this->resolve_from_app($name, $extensions, $tried);
     }
 
     /**

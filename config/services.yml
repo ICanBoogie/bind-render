@@ -1,6 +1,9 @@
 parameters:
-  render.engine_by_extension: ~ # provided by compiler pass
-  render.extensions: ~ # provided by compiler pass
+  # provided by compiler pass
+  render.engine_by_extension: ~
+
+  # provided by compiler pass
+  render.extensions: ~
 
   # Used by the template resolver to search files matching template names.
   render.template_paths:
@@ -29,10 +32,16 @@ services:
   # Template resolver
 
   ICanBoogie\Render\TemplateResolver:
-    alias: ICanBoogie\Render\TemplateResolver\Basic
+    alias: ICanBoogie\Render\TemplateResolver\Chain
+
+  ICanBoogie\Render\TemplateResolver\Chain:
+    $chain: !tagged_iterator render.template_resolver
 
   ICanBoogie\Render\TemplateResolver\Basic:
-    $paths: '%render.template_paths%'
+    arguments:
+      $paths: '%render.template_paths%'
+    tags:
+    - { name: render.template_resolver, priority: 0 }
 
   ICanBoogie\Render\TemplateResolver\Memoize:
     decorates: ICanBoogie\Render\TemplateResolver

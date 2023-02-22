@@ -2,6 +2,9 @@
 
 namespace Test\ICanBoogie\Binding\Render;
 
+use ICanBoogie\Render\EngineProvider;
+use ICanBoogie\Render\Renderer;
+use ICanBoogie\Render\TemplateResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -31,19 +34,53 @@ final class ContainerTest extends TestCase
     {
         return [
 
-            [ 'render.engine_by_extension', [
-                '.phtml' => 'ICanBoogie\Render\PHPEngine',
-                '.php' => 'ICanBoogie\Render\PHPEngine',
-            ] ],
+            [
+                'render.engine_by_extension',
+                [
+                    '.phtml' => 'ICanBoogie\Render\PHPEngine',
+                    '.php' => 'ICanBoogie\Render\PHPEngine',
+                ]
+            ],
 
-            [ 'render.extensions', [
-                '.phtml',
-                '.php',
-            ] ],
+            [
+                'render.extensions',
+                [
+                    '.phtml',
+                    '.php',
+                ]
+            ],
 
-            [ 'render.template_paths', [
-                'app/all/templates',
-            ] ],
+            [
+                'render.template_paths',
+                [
+                    'app/all/templates',
+                ]
+            ],
+
+        ];
+    }
+
+    /**
+     * @dataProvider provide_service
+     */
+    public function test_service(string $id, string $class, string $concrete_class): void
+    {
+        $service = app()->service_for_id($id, $class);
+
+        $this->assertInstanceOf($concrete_class, $service);
+    }
+
+    public function provide_service(): array
+    {
+        return [
+
+            [ 'test.engine_provider', EngineProvider::class, EngineProvider\Container::class ],
+
+            [ 'test.template_resolver', TemplateResolver::class, TemplateResolver\Memoize::class ],
+            [ 'test.template_resolver.basic', TemplateResolver::class, TemplateResolver\Basic::class ],
+            [ 'test.template_resolver.chain', TemplateResolver::class, TemplateResolver\Chain::class ],
+
+            [ 'test.renderer', Renderer::class, Renderer::class ],
 
         ];
     }

@@ -24,7 +24,7 @@ final class CompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container): void
     {
         /**
-         * @var array<string, string>
+         * @var array<string, string> $extensions
          *     Where _key_ is an extension and _value_ a service id.
          */
         $extensions = [];

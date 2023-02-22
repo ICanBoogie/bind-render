@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    public: true
+
+  test.engine_provider:
+    alias: ICanBoogie\Render\EngineProvider
+
+  test.template_resolver:
+    alias: ICanBoogie\Render\TemplateResolver
+
+  test.template_resolver.basic:
+    alias: ICanBoogie\Render\TemplateResolver\Basic
+
+  test.template_resolver.chain:
+    alias: ICanBoogie\Render\TemplateResolver\Chain
+
+  test.renderer:
+    alias: ICanBoogie\Render\Renderer
