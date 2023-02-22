@@ -91,7 +91,6 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 [ApplicationTemplateResolver]: lib/ApplicationTemplateResolver.php
 [Application]:                 https://icanboogie.org/docs/4.0/the-application-class
-[BasicTemplateResolver]:       https://icanboogie.org/api/render/0.6/class-ICanBoogie.Render.BasicTemplateResolver.html
 [TemplateResolver\AlterEvent]: https://icanboogie.org/api/render/0.6/class-ICanBoogie.Render.TemplateResolver.AlterEvent.html
 [icanboogie/module]:           https://github.com/ICanBoogie/Module
 [icanboogie/render]:           https://github.com/ICanBoogie/Render

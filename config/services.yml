@@ -29,9 +29,9 @@ services:
   # Template resolver
 
   ICanBoogie\Render\TemplateResolver:
-    alias: ICanBoogie\Render\BasicTemplateResolver
+    alias: ICanBoogie\Render\TemplateResolver\Basic
 
-  ICanBoogie\Render\BasicTemplateResolver:
+  ICanBoogie\Render\TemplateResolver\Basic:
     $paths: '%render.template_paths%'
 
   ICanBoogie\Render\TemplateResolver\Memoize:
